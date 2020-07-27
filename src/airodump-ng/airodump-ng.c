@@ -501,6 +501,79 @@ static void input_thread(void * arg)
 			ALLEGE(pthread_mutex_unlock(&(lopt.mx_sort)) == 0);
 		}
 
+		if (keycode == KEY_S)
+		{
+			lopt.sort_by--;
+
+			if (lopt.sort_by < 0) lopt.sort_by = MAX_SORT;
+
+			switch (lopt.sort_by)
+			{
+				case SORT_BY_NOTHING:
+					snprintf(lopt.message,
+							 sizeof(lopt.message),
+							 "][ sorting by first seen");
+					break;
+				case SORT_BY_BSSID:
+					snprintf(lopt.message,
+							 sizeof(lopt.message),
+							 "][ sorting by bssid");
+					break;
+				case SORT_BY_POWER:
+					snprintf(lopt.message,
+							 sizeof(lopt.message),
+							 "][ sorting by power level");
+					break;
+				case SORT_BY_BEACON:
+					snprintf(lopt.message,
+							 sizeof(lopt.message),
+							 "][ sorting by beacon number");
+					break;
+				case SORT_BY_DATA:
+					snprintf(lopt.message,
+							 sizeof(lopt.message),
+							 "][ sorting by number of data packets");
+					break;
+				case SORT_BY_PRATE:
+					snprintf(lopt.message,
+							 sizeof(lopt.message),
+							 "][ sorting by packet rate");
+					break;
+				case SORT_BY_CHAN:
+					snprintf(lopt.message,
+							 sizeof(lopt.message),
+							 "][ sorting by channel");
+					break;
+				case SORT_BY_MBIT:
+					snprintf(lopt.message,
+							 sizeof(lopt.message),
+							 "][ sorting by max data rate");
+					break;
+				case SORT_BY_ENC:
+					snprintf(lopt.message,
+							 sizeof(lopt.message),
+							 "][ sorting by encryption");
+					break;
+				case SORT_BY_CIPHER:
+					snprintf(lopt.message,
+							 sizeof(lopt.message),
+							 "][ sorting by cipher");
+					break;
+				case SORT_BY_AUTH:
+					snprintf(lopt.message,
+							 sizeof(lopt.message),
+							 "][ sorting by authentication");
+					break;
+				case SORT_BY_ESSID:
+					snprintf(lopt.message,
+							 sizeof(lopt.message),
+							 "][ sorting by ESSID");
+					break;
+				case SORT_BY_UPTIME:
+					snprintf(lopt.message,
+							 sizeof(lopt.message),
+							 "][ sorting by uptime");
+					break;
 				default:
 					break;
 			}
