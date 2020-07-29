@@ -75,6 +75,8 @@
 #define KEY_ARROW_DOWN 0x42
 #define KEY_ARROW_RIGHT 0x43
 #define KEY_ARROW_LEFT 0x44
+#define KEY_END 0x46
+#define KEY_HOME 0x48
 #define KEY_a 0x61
 #define KEY_c 0x63
 #define KEY_d 0x64
